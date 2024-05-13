@@ -4,7 +4,7 @@
     <BotaoPadraoComponent
     text="Abrir dailog"
     :dialog="dialog"
-    @clicouBotao = "dialog = true"
+    @clicou-botao = "dialog = true"
     />
 
     <v-btn class="ml-2" color="pink" @click="mudaPagina()">
@@ -37,7 +37,7 @@
           </template>
 
           <v-card-actions>
-            <v-spacer></v-spacer>
+            <v-spacer/>
 
             <v-btn
               text="Disagree"
@@ -66,14 +66,14 @@ export default {
     }
   },
 
-  created(){
-
-  },
-
   watch: {
     dialog(evento) {
       this.valor++
     }
+  },
+
+  created(){
+
   },
 
   methods: {

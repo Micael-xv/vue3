@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin(() => {
   const domain = 'http://localhost:3333/'
 
   let api = axios.create({
@@ -10,7 +10,13 @@ export default defineNuxtPlugin(nuxtApp => {
         Authorization: `Bearer`
       }
     }
-  })
+  });
+
+  api.interceptors.response.use(function (response) {
+    return response.data;
+  }, function (error) {
+    return Promise.reject(error);
+  });
 
   return {
     provide: {
