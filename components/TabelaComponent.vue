@@ -1,87 +1,102 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="items"
-    theme="dark"
-  >
-    <template #item.actions="{ item }">
-      <v-icon
-        class="me-2"
-        size="small"
-        @click="editItem(item)"
-      >
-        mdi-pencil
-      </v-icon>
-      <v-icon
-        size="small"
-        @click="deleteItem(item)"
-      >
-        mdi-delete
-      </v-icon>
-    </template>
-    <template #no-data>
-      <v-btn
-        color="primary"
-        @click="initialize"
-      >
-        Reset
-      </v-btn>
-    </template>
-  </v-data-table>
+  <v-container  style="background-color:">
+    <!-- <v-row>
+      <v-col>
+        <h1 style="color: white">
+          {{ titulo }}
+        </h1>
+        <v-col cols="auto">
+          <!-- <h1 style="color: white">elementos</h1> -->
+          <!-- <v-btn icon="mdi-plus" size="default" style="background-color: rgb(14, 98, 6)"/> -->
+      <!-- </v-col>
+      </v-col>
+    </v-row> --> 
+    <v-row>
+      <v-col>
+        <template>
+          <v-toolbar
+            flat
+            style="background-color: green;"
+          >
+            <v-toolbar-title class="font-weight-bold font-italic" >
+                Elementos
+            </v-toolbar-title>
+            
+            <v-col cols="auto" >
+              <v-btn icon="mdi-plus" size="default" style="background-color: red"/>
+            </v-col>
+              
+            <v-divider
+              class="mx-4"
+              inset
+              vertical
+            />
+          </v-toolbar>
+        </template>
+          <v-data-table
+            :headers="headers"
+            :items="items"
+            theme="dark"
+          >
+          <template #item.actions="{ item }">
+            <v-icon
+              class="me-2"
+              size="small"
+              @click="editItem(item)"
+            >
+              mdi-pencil
+            </v-icon>
+              
+            <v-icon
+              size="small"
+              @click="deleteItem(item)"
+            >
+              mdi-delete
+            </v-icon>
+          </template>
+        </v-data-table>
+      </v-col>
+    </v-row>
+    
+  </v-container>
 </template>
 
-
 <script>
-
-  export default {
-    data: () => ({
-      name: 'TabelaComponent',
-      props: {
-        items: {
-          type: Array,
-        },
-        headers: {
-          type: Array
-        }
-      },
-      dialog: false,
-      dialogDelete: false,
-      desserts: [],
-      editedIndex: -1,
-      editedItem: {
-        name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0,
-      },
-      defaultItem: {
-        name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0,
-      },
-    }),
-
-    computed: {
-      formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
-      },
+export default {
+  name: 'TabelaComponent',
+  props: {
+    items: {
+      type: Array,
     },
-
-    watch: {
-      dialog (val) {
-        val || this.close()
-      },
-      dialogDelete (val) {
-        val || this.closeDelete()
-      },
+    headers: {
+      type: Array
     },
+    titulo: {
+      type: String
+    },
+  },
+emits: ['excluir'],
 
-    methods: {
-      
+  data() {
+    return {
     }
-  
-  }
+  },
+
+  methods: {
+    deleteItem(item) {
+      this.$emit('excluir', item)
+    }
+  },
+
+}
 </script>
+
+<style>
+  .v-table tbody tr:nth-child(even) {
+      background-color: rgb(3, 3, 36);
+  }
+
+  .v-table tbody tr:nth-child(odd) {
+      background-color: rgb(47, 4, 63);
+  }
+</style>

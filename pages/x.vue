@@ -42,5 +42,3 @@
     </v-container>
   </body>  
 </template>
-
-
