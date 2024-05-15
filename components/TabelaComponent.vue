@@ -1,20 +1,20 @@
 <template>
   <v-container  style="background-color:">
-    <!-- <v-row>
-      <v-col>
+    <v-row>
+      <v-col cols="11">
         <h1 style="color: white">
           {{ titulo }}
         </h1>
-        <v-col cols="auto">
-          <!-- <h1 style="color: white">elementos</h1> -->
-          <!-- <v-btn icon="mdi-plus" size="default" style="background-color: rgb(14, 98, 6)"/> -->
-      <!-- </v-col>
       </v-col>
-    </v-row> --> 
+      <v-col>
+        <v-btn icon="mdi-plus" size="default" style="background-color: rgb(14, 98, 6)"/>
+      </v-col>
+    </v-row>
+  
     <v-row>
       <v-col>
-        <template>
-          <v-toolbar
+        
+          <!-- <v-toolbar
             flat
             style="background-color: green;"
           >
@@ -31,8 +31,8 @@
               inset
               vertical
             />
-          </v-toolbar>
-        </template>
+          </v-toolbar> -->
+        
           <v-data-table
             :headers="headers"
             :items="items"
@@ -56,7 +56,7 @@
           </template>
         </v-data-table>
       </v-col>
-    </v-row>
+  </v-row>
     
   </v-container>
 </template>

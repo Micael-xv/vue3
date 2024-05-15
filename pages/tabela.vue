@@ -3,7 +3,7 @@
     <!-- <h1 style="color: white;">Elementos</h1> -->
     <v-row>
       <v-col>
-        <TabelaComponent :headers="headers" :items="items" @excluir="deleteItem"/>
+        <TabelaComponent titulo="Elementos" :headers="headers" :items="items" @excluir="deleteItem"/>
       </v-col>
     </v-row>
   </v-container>
