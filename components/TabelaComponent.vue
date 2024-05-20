@@ -6,12 +6,77 @@
           {{ titulo }}
         </h1>
       </v-col>
+
       <v-col>
-        <v-btn icon="mdi-plus" size="default" style="background-color: rgb(14, 98, 6)"/>
+        <v-btn 
+        icon="mdi-plus"
+        size="default"
+        style="background-color: rgb(14, 98, 6)"
+        @click="dialog = true"
+        />
       </v-col>
+
+      <v-container>
+        <v-dialog
+          v-model="dialog"
+          width="auto"
+        >
+        <v-card
+          max-width="100%"
+          title="Colocar elementos"
+          theme="dark"
+        >
+          <template #actions>
+            <v-form>
+      <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          sm="15"
+        >
+          <v-text-field
+            label="Nome"
+            model-value="Café"
+            enable
+          />
+        </v-col>
+
+        <v-col
+          cols="12"
+          sm="15"
+        >
+          <v-text-field
+            label="Descrição"
+            model-value="Café em capsula"
+          />
+        </v-col>
+
+        <v-col
+          cols="12"
+          sm="15"
+        >
+          <v-text-field
+            label="Imagem"
+            model-value="link da imagem"
+            variant="solo"
+          />
+        </v-col>
+        <v-col>
+          <v-btn
+              class="ms-auto justify-center d-flex align-center"
+              style="background-color: crimson;"
+              text="Adicionar"
+              @click="dialog = false"
+          />
+      </v-col>  
     </v-row>
+  </v-container>
   
-    <v-row>
+  </v-form>
+    </template>
+      </v-card>
+        </v-dialog>
+          </v-container>
       <v-col>
         
           <!-- <v-toolbar
@@ -76,6 +141,11 @@ export default {
     },
   },
 emits: ['excluir'],
+    data () {
+      return {
+        dialog: false,
+    }
+  },
 
   data() {
     return {
@@ -85,7 +155,7 @@ emits: ['excluir'],
   methods: {
     deleteItem(item) {
       this.$emit('excluir', item)
-    }
+    },
   },
 
 }
