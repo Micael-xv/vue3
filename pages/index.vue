@@ -40,9 +40,6 @@ export default {
   },
 
   methods: {
-
-
-
     async deleteItem(items) {
         if(confirm(`Deseja deletar o registro com id ${ items.id }`)) {
           const response = await this.$api.post('/elemento/destroy', { id: items.id});

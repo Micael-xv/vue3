@@ -6,28 +6,29 @@
           <img src="https://s2-techtudo.glbimg.com/f5K6FXnCmZnRvij2SNsrZSn9Iso=/600x0/filters:quality(70)/https://i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/e/D/6e24vbQSaRBG2ScINKIQ/imagem-6.jpg" alt="imagem X">
         </v-col>
 
-        <v-col class="text-end">
-          <v-container>
+        <v-col>
+          <v-container style="color: white;">
             <h1>Twitter</h1>
           </v-container>  
 
-          <v-container>
-            <h3>inscrever-se hoje</h3>
+          <v-container style="color: white;" class="mt-n5">
+            <h2>inscrever-se hoje</h2>
           </v-container>
-            <v-container>
-              <v-btn>
-                <v-icon class="ml-n3 mr-4">
+
+            <v-container class="mt-n5">
+              <v-btn rounded="xl" width="280">
+                <v-icon class="mr-2">
                   mdi-google
                 </v-icon>
                 <p>inscreva-se pelo google</p>
               </v-btn>
             </v-container>
 
-            <v-container>
+            <v-container class="mt-n4">
               <v-row class="mr-n7">
-                <v-col style class="ml-3 mr-4">
-                  <v-btn width="280">
-                    <v-icon class="ml-n9 mr-4">
+                <v-col class="mr-4 mb-n3">
+                  <v-btn rounded="xl" width="280">
+                    <v-icon class="mr-2">
                       mdi-apple
                     </v-icon>
                     <p>inscreva-se com Apple</p>
@@ -36,6 +37,23 @@
               </v-row>
             </v-container>
 
+            <v-container class="mt-n2">
+              <v-row>
+                <v-col style="color: white;">
+                  <h>------------------------ou------------------------</h>
+                </v-col>
+              </v-row>
+            </v-container>
+
+            <v-container class="mt-n5">
+              <v-row>
+                <v-col>
+                  <v-btn rounded="xl" width="280" style="color" class="bg-blue" >
+                    <p>Criar conta</p>
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-container>
         </v-col>
 
       </v-row>
