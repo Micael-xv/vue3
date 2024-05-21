@@ -1,7 +1,7 @@
 <template>
   <v-btn
-      :text="text"
-      @click="emitirEvento"
+    :text="text"
+    @click="emitirEvento"
   />
   
   <!-- @click="dialog = !dialog" -->
@@ -14,7 +14,7 @@
 
     props: {
       text: {
-        type: String
+        type: String,
       },
 
       dialog: {

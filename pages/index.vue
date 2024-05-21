@@ -1,13 +1,12 @@
 <template>
   <v-container class="pa-4 text-center">
-    <h1>{{ valor }}</h1>
+    <h1 style="color: white;">{{ valor }}</h1>
     <BotaoPadraoComponent
-      text="Abrir dailog"
+      text="Contar"
       :dialog="dialog"
-      @clicou-botao = "dialog = true"
+      @clicou-botao="abrirDialog"
       @excluir="deleteItem"
     />
-
     <v-btn class="ml-2" color="pink" @click="mudaPagina()">
       <v-icon>
         mdi-check
@@ -50,6 +49,11 @@ export default {
       
     mudaPagina(){
       this.$router.push({ path: '/x' });
+    },
+
+    abrirDialog() {
+      this.dialog = true;
+      this.valor++;
     }
   }
 }
