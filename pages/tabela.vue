@@ -71,7 +71,7 @@
         await this.getItens();
       },
       async criar() {
-        const response = await this.$api.post('/atividade/persist', this.atividade);
+        const response = await this.$api.post('/elemento/persist', this.elemento);
         this.resetAtividade()
         await this.getItems();
       },
