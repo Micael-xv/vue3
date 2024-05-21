@@ -12,33 +12,45 @@
 <script>
   export default {
     data: () => {
-      return {
-        headers: [  
-          {
-            title: 'Identificação',
-            key: 'id'
-          },
-          {
-            title: 'Nome',
-            key: 'name'
-          },
-          {
-            title: 'Descrição',
-            key: 'descricao'
-          },
-          {
-            title: 'Imagem',
-            key: 'img'
-          },
-          {
-            title: 'Actions',
-            key: 'actions',
-            sortable: false,
-          }
-        ],
-        items: []
-      }
-    },
+    return {
+      dialog: false,	
+      valor: 0,
+      ativo: true,
+      loading: true,
+      textoUsuario: null,
+        valor: 0,
+      atividade: {
+        nome: null,
+        descricao: null,
+        img: null
+      },
+      headers: [
+        {
+          title: 'Identificação',
+          key: 'id'
+        },
+        {
+          title: 'Nome',
+          key: 'name'
+        },
+        {
+          title: 'Descrição',
+          key: 'descricao'
+        },
+        {
+          title: 'Imagem',
+          key: 'img'
+        },
+        {
+          title: 'Actions',
+          key: 'actions',
+          sortable: false,
+        }
+      ],
+      items: [],
+      eventos: [],
+    }
+  },
     async created(){
       await this.getItens();
     },
@@ -57,7 +69,12 @@
           }
         }
         await this.getItens();
-    },
+      },
+      async criar() {
+        const response = await this.$api.post('/atividade/persist', this.atividade);
+        this.resetAtividade()
+        await this.getItems();
+      },
     },
 
   }
