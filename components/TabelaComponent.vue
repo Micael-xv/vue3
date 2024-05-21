@@ -35,7 +35,7 @@
           sm="15"
         >
           <v-text-field
-            label="Nome"
+            label="Nome do produto"
             model-value="Café"
             enable
           />

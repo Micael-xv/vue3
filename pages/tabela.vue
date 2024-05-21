@@ -30,7 +30,7 @@
           key: 'id'
         },
         {
-          title: 'Nome',
+          title: 'Nome do produto',
           key: 'name'
         },
         {
