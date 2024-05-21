@@ -37,6 +37,11 @@ export default {
   },
 
   methods: {
+    async getItens(){
+      const response = await this.$api.get('/elemento')
+      this.items = response.data
+      this.loading = false;
+    },
     async deleteItem(items) {
         if(confirm(`Deseja deletar o registro com id ${ items.id }`)) {
           const response = await this.$api.post('/elemento/destroy', { id: items.id});
@@ -44,9 +49,17 @@ export default {
             alert(response.message);
           }
         }
-        await this.getItens();
+      await this.getItens();
     },
-      
+    async persist() {
+      if (this.atividade.id) {
+        const response = await this.$api.post(`/elemento/persist/${this.atividade.id}`, this.atividade);
+      } else {
+        const response = await this.$api.post('/elemento/persist', this.atividade);
+      }
+      this.resetAtividade()
+      await this.getItems();
+    },
     mudaPagina(){
       this.$router.push({ path: '/x' });
     },
