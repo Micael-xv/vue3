@@ -1,20 +1,33 @@
 <template>
   <v-row>
+    <!-- <v-col v-for="(item, x) in items" :key="x" cols="12" md="3">
+      <v-card
+        class="ma-3"
+        :title="item.name"
+        :subtitle="item.descricao"
+        text="Lorem ipsum dolor sit amet . Os operadores gráficos e tipográficos sabem disso bem, na realidade, todas as profissões que lidam com o universo da comunicação têm um relacionamento estável com essas palavras, mas o que é? Lorem ipsum é um texto fofo sem qualquer sentido."
+        theme="dark"
+      />
+    </v-col> -->
     <v-col v-for="(item, x) in items" :key="x" cols="12" md="3">
       <v-card
         class="ma-3"
         :title="item.name"
         :subtitle="item.descricao"
-        text="Em 2016 coloquei como uma das metas do ano Aprender a fazer um bom nhoque, mas foi só no final de 2018 que finalmente fiz um nhoque com cara e sabor de nhoque."
+        text="..."
         theme="dark"
-      />
+      >
+        <v-card-actions>
+          <v-btn>Ver</v-btn>
+        </v-card-actions>
+      </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
 export default {
-  name: "ElementosPage",
+  name: "ElementoFuncao",
   data() {
     return {
       items: [],
