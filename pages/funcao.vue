@@ -1,13 +1,11 @@
 <template>
   <v-row>
-    <v-col cols="12" md="4">
+    <v-col v-for="(item, x) in items" :key="x" cols="12" md="3">
       <v-card
-        v-for="(item, x) in items"
-        :key="x"
-        class="ma-12"
+        class="ma-3"
         :title="item.name"
         :subtitle="item.descricao"
-        text="Itens carregados com sucesso"
+        text="Em 2016 coloquei como uma das metas do ano Aprender a fazer um bom nhoque, mas foi só no final de 2018 que finalmente fiz um nhoque com cara e sabor de nhoque."
         theme="dark"
       />
     </v-col>
@@ -23,10 +21,10 @@ export default {
     };
   },
   async created() {
-    await this.getItens();
+    await this.getItensAPI();
   },
   methods: {
-    async getItens() {
+    async getItensAPI() {
       try {
         const response = await this.$api.get("/elemento");
         this.items = response.data;
