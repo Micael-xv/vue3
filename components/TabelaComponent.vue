@@ -6,7 +6,7 @@
           {{ titulo }}
         </h1>
       </v-col>
-
+      
       <v-col>
         <v-btn
           icon="mdi-plus"
@@ -17,17 +17,29 @@
       </v-col>
 
       <v-col>
-        <v-data-table :headers="headers" :items="items" theme="dark">
-          <template #item.actions="{ item }">
-            <v-icon class="me-2" size="small" @click="editItem(item)">
-              mdi-pencil
-            </v-icon>
-
-            <v-icon size="small" @click="deleteItem(item)">
-              mdi-delete 
-            </v-icon>
+        <v-card theme="dark" elevation="0">
+          <template #text>
+            <v-text-field
+              v-model="search"
+              label="Search"
+              prepend-inner-icon="mdi-magnify"
+              variant="outlined"
+              hide-details
+              single-line
+            />
           </template>
-        </v-data-table>
+          <v-data-table :search="search" :headers="headers" :items="items" theme="dark">
+            <template #item.actions="{ item }">
+              <v-icon class="me-2" size="small" @click="editItem(item)">
+                mdi-pencil
+              </v-icon>
+  
+              <v-icon size="small" @click="deleteItem(item)">
+                mdi-delete 
+              </v-icon>
+            </template>
+          </v-data-table>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -52,6 +64,7 @@ export default {
   data() {
     return {
       dialog: false,
+      search: ''
     };
   },
 

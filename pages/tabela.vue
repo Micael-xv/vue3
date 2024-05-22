@@ -3,10 +3,10 @@
     <v-row>
       <v-col>
         <TabelaComponent
-          @criar="dialog = true"
-          titulo="Elementos"
           :headers="headers"
+          titulo="Elementos"
           :items="items"
+          @criar="dialog = true"
           @excluir="deleteItem"
           @editar="editItem"
           @persist="persist"
@@ -18,7 +18,7 @@
         <v-form>
           <v-container>
             <v-row>
-              <v-col cols="12" sm="15">
+              <v-col>
                 <v-text-field
                   v-model="elemento.name"
                   label="Nome do produto"
@@ -26,7 +26,7 @@
                 />
               </v-col>
 
-              <v-col cols="12" sm="15">
+              <v-col>
                 <v-text-field v-model="elemento.descricao" label="Descrição" />
               </v-col>
 
@@ -34,8 +34,15 @@
                 <v-text-field v-model="elemento.img" label="Imagem" />
               </v-col>
 
-              <v-col cols="12" sm="15">
-                <v-text-field v-model="elemento.publico" label="publico" />
+              <v-col>
+                <v-switch
+                  v-model="elemento.publico"
+                  :label="`Switch: ${elemento.publico}`"
+                  false-value="false"
+                  true-value="true"
+                  hide-details
+                  :color="elemento.publico ? 'green' : 'red'"
+                />
               </v-col>
 
               <v-col>
@@ -49,7 +56,7 @@
                   <v-btn
                     class="ms-auto justify-center d-flex align-center"
                     style="background-color: crimson"
-                    text="salvar"
+                    text="Salvar"
                     @click="persist()"
                   />
                 </v-col>
@@ -66,6 +73,7 @@
 export default {
   data() {
     return {
+      model: "model",
       dialog: false,
       loading: true,
       elemento: {
@@ -129,7 +137,7 @@ export default {
 
     async getItens() {
       const response = await this.$api.get("/elemento");
-      this.items = response.data;
+      this.items = response.data.map(element => element);;
       this.loading = false;
     },
     async deleteItem(items) {
