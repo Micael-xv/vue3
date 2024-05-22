@@ -23,10 +23,10 @@ export default {
     };
   },
   async created() {
-    await this.getItemsFromAPI();
+    await this.getItens();
   },
   methods: {
-    async getItemsFromAPI() {
+    async getItens() {
       try {
         const response = await this.$api.get("/elemento");
         this.items = response.data;
