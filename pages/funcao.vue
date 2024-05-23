@@ -10,6 +10,7 @@
             dark
             theme="dark"
             elevation="15"
+            style="border-radius: 25px;"
           >
             <v-img
               v-if="item"
