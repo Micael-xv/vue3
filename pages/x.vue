@@ -97,7 +97,7 @@
       <v-dialog v-model="dialog" max-width="650">
         <v-card theme="dark" elevation="15" style="border-radius: 25px;  background-color: #000;">
           <v-btn
-            class="ml-3 mt-3 dark"
+            class="ml-3 mt-3 mb-9 dark"
             density="compact"
             icon="mdi-close"
             @click="dialog = false"
