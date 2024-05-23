@@ -5,14 +5,15 @@
         <v-hover v-slot="{ isHovering, props }">
           <v-card
             class="mx-auto ma-5 ml-5 mr-5"
-            color="grey-lighten-4"
             max-width="600"
             v-bind="props"
             dark
+            theme="dark"
           >
             <v-img
+              v-if="item"
               :aspect-ratio="16 / 9"
-              src="https://img.freepik.com/fotos-premium/melhor-foto-aleatoria_865967-169321.jpg"
+              :src= "item.img"
               cover
             >
               <v-expand-transition>
@@ -30,7 +31,7 @@
               </v-expand-transition>
             </v-img>
             <v-card-text class="pt-6">
-              <h3 class="text-h4 font-weight-light text-orange mb-2" v-if="item">
+              <h3 v-if="item" class="text-h4 font-weight-light text-orange mb-2">
                 {{ item.name}}
               </h3>
             </v-card-text>
