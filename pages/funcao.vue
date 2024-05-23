@@ -9,6 +9,7 @@
             v-bind="props"
             dark
             theme="dark"
+            elevation="15"
           >
             <v-img
               v-if="item"
