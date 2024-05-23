@@ -1,6 +1,6 @@
 <template>
   <v-container class="pa-4 text-center">
-    <h1 style="color: white;">{{ valor }}</h1>
+    <h1 style="color: white">{{ valor }}</h1>
     <BotaoPadraoComponent
       text="Contar"
       :dialog="dialog"
@@ -8,11 +8,12 @@
       @excluir="deleteItem"
     />
     <v-btn class="ml-2" color="pink" @click="mudaPagina()">
-      <v-icon>
-        mdi-check
-      </v-icon>
+      <v-icon> mdi-twitter </v-icon>
     </v-btn>
 
+    <v-btn class="ml-2" color="green" @click="funcFor">
+      <v-icon> mdi-bug-check-outline </v-icon>
+    </v-btn>
   </v-container>
 </template>
 
@@ -23,51 +24,59 @@ export default {
       ativo: false,
       dialog: false,
       valor: 0,
-    }
+    };
   },
 
   watch: {
     dialog(evento) {
-      this.valor++
-    }
+      this.valor++;
+    },
   },
 
-  created(){
-
-  },
+  created() {},
 
   methods: {
-    async getItens(){
-      const response = await this.$api.get('/elemento')
-      this.items = response.data
+    async getItens() {
+      const response = await this.$api.get("/elemento");
+      this.items = response.data;
       this.loading = false;
     },
     async deleteItem(items) {
-        if(confirm(`Deseja deletar o registro com id ${ items.id }`)) {
-          const response = await this.$api.post('/elemento/destroy', { id: items.id});
-          if(response.type == 'error') {
-            alert(response.message);
-          }
+      if (confirm(`Deseja deletar o registro com id ${items.id}`)) {
+        const response = await this.$api.post("/elemento/destroy", {
+          id: items.id,
+        });
+        if (response.type == "error") {
+          alert(response.message);
         }
+      }
       await this.getItens();
     },
     async persist() {
       if (this.atividade.id) {
-        const response = await this.$api.post(`/elemento/persist/${this.atividade.id}`, this.atividade);
+        const response = await this.$api.post(
+          `/elemento/persist/${this.atividade.id}`,
+          this.atividade
+        );
       } else {
-        const response = await this.$api.post('/elemento/persist', this.atividade);
+        const response = await this.$api.post(
+          "/elemento/persist",
+          this.atividade
+        );
       }
-      this.resetAtividade()
+      this.resetAtividade();
       await this.getItems();
     },
-    mudaPagina(){
-      this.$router.push({ path: '/x' });
+    mudaPagina() {
+      this.$router.push({ path: "/x" });
     },
-
+    funcFor() {
+      this.$router.push({ path: "/funcao" });
+    },
     abrirDialog() {
       this.dialog = true;
       this.valor++;
-    }
-  }
-}
+    },
+  },
+};
 </script>
