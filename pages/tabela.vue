@@ -98,10 +98,6 @@ export default {
           key: "descricao",
         },
         {
-          title: "Imagem",
-          key: "img",
-        },
-        {
           title: "Actions",
           key: "actions",
           sortable: false,
