@@ -119,11 +119,8 @@
 export default {
   data() {
     return {
-      dialog: false // Defina a propriedade dialog como false para iniciar o diálogo como oculto
+      dialog: false
     };
   }
 };
 </script>
-
-
-<script></script>
