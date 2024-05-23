@@ -4,8 +4,9 @@
       <div>
         <v-hover v-slot="{ isHovering, props }">
           <v-card
-            class="mx-auto ma-5 ml-5 mr-5"
-            max-width="600"
+            class="ma-3"
+            width="363"
+            height="350"
             v-bind="props"
             dark
             theme="dark"
@@ -14,7 +15,7 @@
           >
             <v-img
               v-if="item"
-              :aspect-ratio="16 / 9"
+              :aspect-ratio="17 / 10"
               :src= "item.img"
               cover
             >
@@ -25,7 +26,7 @@
                   style="height: 100%"
                 >
                   <div v-if="item">
-                    <div class="font-weight-light text-h6 mb-2">
+                    <div class="font-weight-light text-h6 mb-2" style="justify-content: center;">
                       {{ item.descricao }}
                     </div>
                   </div>
