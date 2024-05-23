@@ -7,7 +7,7 @@
             <img
               src="https://s2-techtudo.glbimg.com/f5K6FXnCmZnRvij2SNsrZSn9Iso=/600x0/filters:quality(70)/https://i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/e/D/6e24vbQSaRBG2ScINKIQ/imagem-6.jpg"
               alt="imagem X"
-            >
+            />
           </v-col>
 
           <v-col class="mt-5">
@@ -94,21 +94,22 @@
         </v-row>
       </v-container>
 
-      <!-- Dialog para criar conta -->
-      <v-dialog v-model="dialog" max-width="500">
-        <v-card theme="dark" elevation="15" style="border-radius: 25px">
-          <!-- Adicione aspas e a unidade de medida 'px' -->
+      <v-dialog v-model="dialog" max-width="650">
+        <v-card theme="dark" elevation="15" style="border-radius: 25px;  background-color: #000;">
           <v-btn
             class="ml-3 mt-3 dark"
             density="compact"
             icon="mdi-close"
             @click="dialog = false"
           />
-          <v-card-title class="headline">Criar sua conta</v-card-title>
-          <v-card-text>
-            <!-- Conteúdo do formulário de criação de conta -->
-            <p>twitter</p>
-          </v-card-text>
+          <v-card-title class="headline mb-3" style="margin-left: 8%;"><h2>Criar sua conta</h2></v-card-title>
+          <v-text-field
+            clearable
+            label="Nome"
+            variant="outlined"
+            style="width: 75%; margin-left: 10%"
+          />
+          
         </v-card>
       </v-dialog>
     </body>
@@ -117,10 +118,18 @@
 
 <script>
 export default {
-  data() {
-    return {
-      dialog: false
-    };
-  }
+  data: () => ({
+    dialog: false,
+    overlay: false,
+  }),
+
+  watch: {
+    overlay(val) {
+      val &&
+        setTimeout(() => {
+          this.overlay = false;
+        }, 2000);
+    },
+  },
 };
 </script>
