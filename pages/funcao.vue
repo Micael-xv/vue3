@@ -4,7 +4,7 @@
       <div>
         <v-hover v-slot="{ isHovering, props }">
           <v-card
-            class="mx-auto ml-12 ma-12"
+            class="mx-auto ma-5 ml-5 mr-5"
             color="grey-lighten-4"
             max-width="600"
             v-bind="props"
