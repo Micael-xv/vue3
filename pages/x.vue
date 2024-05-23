@@ -48,7 +48,7 @@
             <v-container class="mt-n2">
               <v-row>
                 <v-col style="color: white">
-                  <h>------------------------ou------------------------</h>
+                  <p>------------------------ou------------------------</p>
                 </v-col>
               </v-row>
             </v-container>
