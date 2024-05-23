@@ -1,26 +1,42 @@
 <template>
   <v-row>
-    <!-- <v-col v-for="(item, x) in items" :key="x" cols="12" md="3">
-      <v-card
-        class="ma-3"
-        :title="item.name"
-        :subtitle="item.descricao"
-        text="Lorem ipsum dolor sit amet . Os operadores gráficos e tipográficos sabem disso bem, na realidade, todas as profissões que lidam com o universo da comunicação têm um relacionamento estável com essas palavras, mas o que é? Lorem ipsum é um texto fofo sem qualquer sentido."
-        theme="dark"
-      />
-    </v-col> -->
     <v-col v-for="(item, x) in items" :key="x" cols="12" md="3">
-      <v-card
-        class="ma-3"
-        :title="item.name"
-        :subtitle="item.descricao"
-        text="..."
-        theme="dark"
-      >
-        <v-card-actions>
-          <v-btn>Ver</v-btn>
-        </v-card-actions>
-      </v-card>
+      <div>
+        <v-hover v-slot="{ isHovering, props }">
+          <v-card
+            class="mx-auto ml-12 ma-12"
+            color="grey-lighten-4"
+            max-width="600"
+            v-bind="props"
+            dark
+          >
+            <v-img
+              :aspect-ratio="16 / 9"
+              src="https://img.freepik.com/fotos-premium/melhor-foto-aleatoria_865967-169321.jpg"
+              cover
+            >
+              <v-expand-transition>
+                <div
+                  v-if="isHovering"
+                  class="d-flex transition-fast-in-fast-out bg-orange-darken-2 v-card--reveal text-h2"
+                  style="height: 100%"
+                >
+                  <div v-if="item">
+                    <div class="font-weight-light text-h6 mb-2">
+                      {{ item.descricao }}
+                    </div>
+                  </div>
+                </div>
+              </v-expand-transition>
+            </v-img>
+            <v-card-text class="pt-6">
+              <h3 class="text-h4 font-weight-light text-orange mb-2" v-if="item">
+                {{ item.name}}
+              </h3>
+            </v-card-text>
+          </v-card>
+        </v-hover>
+      </div>
     </v-col>
   </v-row>
 </template>
@@ -49,4 +65,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.v-card--reveal {
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  opacity: 0.9;
+  position: absolute;
+  width: 100%;
+}
+</style>
