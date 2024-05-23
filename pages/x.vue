@@ -61,7 +61,7 @@
                     width="280"
                     style="color"
                     class="bg-blue"
-                    @click="dialog = true"
+                    @click="dialog = true; overlay = true"
                   >
                     <p>Criar conta</p>
                   </v-btn>
@@ -109,7 +109,12 @@
             variant="outlined"
             style="width: 75%; margin-left: 10%"
           />
-          
+          <v-text-field
+            clearable
+            label="Celular"
+            variant="outlined"
+            style="width: 75%; margin-left: 10%"
+          />
         </v-card>
       </v-dialog>
     </body>
